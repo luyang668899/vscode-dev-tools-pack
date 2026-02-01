@@ -1,0 +1,89 @@
+{
+  "name": "devops-tools",
+  "displayName": "DevOps Tools",
+  "description": "CI/CD integration and deployment management tools for streamlined development workflows",
+  "version": "1.0.0",
+  "publisher": "vscode",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:devops-tools.runPipeline",
+    "onCommand:devops-tools.viewPipelineStatus",
+    "onCommand:devops-tools.deployApplication",
+    "onCommand:devops-tools.rollbackDeployment",
+    "onCommand:devops-tools.manageEnvironments",
+    "onCommand:devops-tools.monitorDeployments"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "devops-tools.runPipeline",
+        "title": "DevOps: Run Pipeline"
+      },
+      {
+        "command": "devops-tools.viewPipelineStatus",
+        "title": "DevOps: View Pipeline Status"
+      },
+      {
+        "command": "devops-tools.deployApplication",
+        "title": "DevOps: Deploy Application"
+      },
+      {
+        "command": "devops-tools.rollbackDeployment",
+        "title": "DevOps: Rollback Deployment"
+      },
+      {
+        "command": "devops-tools.manageEnvironments",
+        "title": "DevOps: Manage Environments"
+      },
+      {
+        "command": "devops-tools.monitorDeployments",
+        "title": "DevOps: Monitor Deployments"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "devops-tools.runPipeline",
+          "group": "devops"
+        },
+        {
+          "command": "devops-tools.deployApplication",
+          "group": "devops"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "devops-tools.runPipeline",
+        "key": "ctrl+shift+r",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "devops-tools.viewPipelineStatus",
+        "key": "ctrl+shift+s",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "devops-tools.deployApplication",
+        "key": "ctrl+shift+d",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.9.3"
+  }
+}

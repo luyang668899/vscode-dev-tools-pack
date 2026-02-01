@@ -1,0 +1,84 @@
+{
+  "name": "cloud-tools",
+  "displayName": "Cloud Tools",
+  "description": "Cloud service integration with AWS, Azure, and GCP management tools",
+  "version": "1.0.0",
+  "publisher": "vscode",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:cloud-tools.awsExplorer",
+    "onCommand:cloud-tools.azureExplorer",
+    "onCommand:cloud-tools.gcpExplorer",
+    "onCommand:cloud-tools.deployToCloud",
+    "onCommand:cloud-tools.monitorResources"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "cloud-tools.awsExplorer",
+        "title": "Cloud Tools: AWS Explorer"
+      },
+      {
+        "command": "cloud-tools.azureExplorer",
+        "title": "Cloud Tools: Azure Explorer"
+      },
+      {
+        "command": "cloud-tools.gcpExplorer",
+        "title": "Cloud Tools: GCP Explorer"
+      },
+      {
+        "command": "cloud-tools.deployToCloud",
+        "title": "Cloud Tools: Deploy to Cloud"
+      },
+      {
+        "command": "cloud-tools.monitorResources",
+        "title": "Cloud Tools: Monitor Resources"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "cloud-tools.deployToCloud",
+          "group": "cloud-tools"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "cloud-tools.refreshExplorer",
+          "when": "view == cloud-tools-explorer"
+        }
+      ]
+    },
+    "views": {
+      "cloud-tools": [
+        {
+          "id": "cloud-tools-explorer",
+          "name": "Cloud Explorer"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "cloud-tools.deployToCloud",
+        "key": "ctrl+shift+d",
+        "when": "explorerViewletVisible"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.9.3"
+  }
+}

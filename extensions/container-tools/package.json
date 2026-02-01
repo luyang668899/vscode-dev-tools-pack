@@ -1,0 +1,93 @@
+{
+  "name": "container-tools",
+  "displayName": "Container Tools",
+  "description": "Docker and Kubernetes container management tools with container exploration and deployment capabilities",
+  "version": "1.0.0",
+  "publisher": "vscode",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:container-tools.dockerExplorer",
+    "onCommand:container-tools.kubernetesExplorer",
+    "onCommand:container-tools.buildImage",
+    "onCommand:container-tools.runContainer",
+    "onCommand:container-tools.deployToKubernetes"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "container-tools.dockerExplorer",
+        "title": "Container Tools: Docker Explorer"
+      },
+      {
+        "command": "container-tools.kubernetesExplorer",
+        "title": "Container Tools: Kubernetes Explorer"
+      },
+      {
+        "command": "container-tools.buildImage",
+        "title": "Container Tools: Build Image"
+      },
+      {
+        "command": "container-tools.runContainer",
+        "title": "Container Tools: Run Container"
+      },
+      {
+        "command": "container-tools.deployToKubernetes",
+        "title": "Container Tools: Deploy to Kubernetes"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "container-tools.buildImage",
+          "group": "container-tools"
+        },
+        {
+          "command": "container-tools.runContainer",
+          "group": "container-tools"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "container-tools.refreshExplorer",
+          "when": "view == container-tools-explorer"
+        }
+      ]
+    },
+    "views": {
+      "container-tools": [
+        {
+          "id": "container-tools-explorer",
+          "name": "Container Explorer"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "container-tools.buildImage",
+        "key": "ctrl+shift+b",
+        "when": "explorerViewletVisible"
+      },
+      {
+        "command": "container-tools.runContainer",
+        "key": "ctrl+shift+r",
+        "when": "explorerViewletVisible"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.9.3"
+  }
+}

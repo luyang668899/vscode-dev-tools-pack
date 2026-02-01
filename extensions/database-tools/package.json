@@ -1,0 +1,93 @@
+{
+  "name": "database-tools",
+  "displayName": "Database Tools",
+  "description": "Database management tools for connecting to databases, running queries, and optimizing database performance",
+  "version": "1.0.0",
+  "publisher": "vscode",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:database-tools.connectDatabase",
+    "onCommand:database-tools.runQuery",
+    "onCommand:database-tools.optimizeQuery",
+    "onCommand:database-tools.exportData",
+    "onCommand:database-tools.importData"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "database-tools.connectDatabase",
+        "title": "Database Tools: Connect to Database"
+      },
+      {
+        "command": "database-tools.runQuery",
+        "title": "Database Tools: Run Query"
+      },
+      {
+        "command": "database-tools.optimizeQuery",
+        "title": "Database Tools: Optimize Query"
+      },
+      {
+        "command": "database-tools.exportData",
+        "title": "Database Tools: Export Data"
+      },
+      {
+        "command": "database-tools.importData",
+        "title": "Database Tools: Import Data"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "database-tools.runQuery",
+          "group": "database"
+        },
+        {
+          "command": "database-tools.optimizeQuery",
+          "group": "database"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "database-tools.refreshExplorer",
+          "when": "view == database-explorer"
+        }
+      ]
+    },
+    "views": {
+      "database-tools": [
+        {
+          "id": "database-explorer",
+          "name": "Database Explorer"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "database-tools.runQuery",
+        "key": "ctrl+shift+q",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "database-tools.optimizeQuery",
+        "key": "ctrl+shift+o",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.9.3"
+  }
+}

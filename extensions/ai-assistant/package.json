@@ -1,0 +1,120 @@
+{
+  "name": "ai-assistant",
+  "displayName": "AI Assistant",
+  "description": "AI-powered coding assistant with code generation, explanation, and refactoring capabilities",
+  "version": "1.0.0",
+  "publisher": "vscode",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:ai-assistant.generateCode",
+    "onCommand:ai-assistant.explainCode",
+    "onCommand:ai-assistant.refactorCode",
+    "onCommand:ai-assistant.generateComments",
+    "onCommand:ai-assistant.suggestRefactor",
+    "onCommand:ai-assistant.optimizePerformance"
+  ],
+  "contributes": {
+        "commands": [
+            {
+                "command": "ai-assistant.generateCode",
+                "title": "AI Assistant: Generate Code"
+            },
+            {
+                "command": "ai-assistant.explainCode",
+                "title": "AI Assistant: Explain Code"
+            },
+            {
+                "command": "ai-assistant.refactorCode",
+                "title": "AI Assistant: Refactor Code"
+            },
+            {
+                "command": "ai-assistant.generateComments",
+                "title": "AI Assistant: Generate Comments"
+            },
+            {
+                "command": "ai-assistant.suggestRefactor",
+                "title": "AI Assistant: Suggest Refactoring"
+            },
+            {
+                "command": "ai-assistant.optimizePerformance",
+                "title": "AI Assistant: Optimize Performance"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                "command": "ai-assistant.generateCode",
+                "group": "ai-assistant"
+            },
+            {
+                "command": "ai-assistant.explainCode",
+                "group": "ai-assistant"
+            },
+            {
+                "command": "ai-assistant.refactorCode",
+                "group": "ai-assistant"
+            },
+            {
+                "command": "ai-assistant.generateComments",
+                "group": "ai-assistant"
+            },
+            {
+                "command": "ai-assistant.suggestRefactor",
+                "group": "ai-assistant"
+            },
+            {
+                "command": "ai-assistant.optimizePerformance",
+                "group": "ai-assistant"
+            }
+            ]
+        },
+        "keybindings": [
+            {
+                "command": "ai-assistant.generateCode",
+                "key": "ctrl+shift+g",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "ai-assistant.explainCode",
+                "key": "ctrl+shift+e",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "ai-assistant.refactorCode",
+                "key": "ctrl+shift+r",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "ai-assistant.generateComments",
+                "key": "ctrl+shift+c",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "ai-assistant.suggestRefactor",
+                "key": "ctrl+shift+f",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "ai-assistant.optimizePerformance",
+                "key": "ctrl+shift+p",
+                "when": "editorTextFocus"
+            }
+        ]
+    },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.9.3"
+  }
+}

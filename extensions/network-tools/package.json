@@ -1,0 +1,93 @@
+{
+  "name": "network-tools",
+  "displayName": "Network Tools",
+  "description": "Network tools for API testing, HTTP request analysis, and network performance monitoring",
+  "version": "1.0.0",
+  "publisher": "vscode",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:network-tools.sendRequest",
+    "onCommand:network-tools.monitorNetwork",
+    "onCommand:network-tools.analyzeResponse",
+    "onCommand:network-tools.importCollection",
+    "onCommand:network-tools.exportCollection"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "network-tools.sendRequest",
+        "title": "Network Tools: Send HTTP Request"
+      },
+      {
+        "command": "network-tools.monitorNetwork",
+        "title": "Network Tools: Monitor Network"
+      },
+      {
+        "command": "network-tools.analyzeResponse",
+        "title": "Network Tools: Analyze Response"
+      },
+      {
+        "command": "network-tools.importCollection",
+        "title": "Network Tools: Import Collection"
+      },
+      {
+        "command": "network-tools.exportCollection",
+        "title": "Network Tools: Export Collection"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "network-tools.sendRequest",
+          "group": "network"
+        },
+        {
+          "command": "network-tools.analyzeResponse",
+          "group": "network"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "network-tools.refreshMonitor",
+          "when": "view == network-monitor"
+        }
+      ]
+    },
+    "views": {
+      "network-tools": [
+        {
+          "id": "network-monitor",
+          "name": "Network Monitor"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "network-tools.sendRequest",
+        "key": "ctrl+shift+r",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "network-tools.analyzeResponse",
+        "key": "ctrl+shift+a",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.9.3"
+  }
+}

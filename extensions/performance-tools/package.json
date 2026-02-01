@@ -1,0 +1,88 @@
+{
+  "name": "performance-tools",
+  "displayName": "Performance Tools",
+  "description": "Performance tools for code performance analysis, optimization suggestions, and resource usage monitoring",
+  "version": "1.0.0",
+  "publisher": "vscode",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:performance-tools.analyzePerformance",
+    "onCommand:performance-tools.optimizeCode",
+    "onCommand:performance-tools.monitorResources",
+    "onCommand:performance-tools.generateReport"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "performance-tools.analyzePerformance",
+        "title": "Performance Tools: Analyze Performance"
+      },
+      {
+        "command": "performance-tools.optimizeCode",
+        "title": "Performance Tools: Optimize Code"
+      },
+      {
+        "command": "performance-tools.monitorResources",
+        "title": "Performance Tools: Monitor Resources"
+      },
+      {
+        "command": "performance-tools.generateReport",
+        "title": "Performance Tools: Generate Report"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "performance-tools.analyzePerformance",
+          "group": "performance"
+        },
+        {
+          "command": "performance-tools.optimizeCode",
+          "group": "performance"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "performance-tools.refreshMonitor",
+          "when": "view == performance-monitor"
+        }
+      ]
+    },
+    "views": {
+      "performance-tools": [
+        {
+          "id": "performance-monitor",
+          "name": "Performance Monitor"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "performance-tools.analyzePerformance",
+        "key": "ctrl+shift+p",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "performance-tools.optimizeCode",
+        "key": "ctrl+shift+o",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.9.3"
+  }
+}

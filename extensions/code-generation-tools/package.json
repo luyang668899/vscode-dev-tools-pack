@@ -1,0 +1,92 @@
+{
+  "name": "code-generation-tools",
+  "displayName": "Code Generation Tools",
+  "description": "AI-driven code generation and template management tools for accelerated development",
+  "version": "1.0.0",
+  "publisher": "vscode",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:code-generation.generateCode",
+    "onCommand:code-generation.generateFromTemplate",
+    "onCommand:code-generation.saveTemplate",
+    "onCommand:code-generation.manageTemplates",
+    "onCommand:code-generation.generateDocumentation"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "code-generation.generateCode",
+        "title": "Code Generation: Generate Code from Prompt"
+      },
+      {
+        "command": "code-generation.generateFromTemplate",
+        "title": "Code Generation: Generate from Template"
+      },
+      {
+        "command": "code-generation.saveTemplate",
+        "title": "Code Generation: Save as Template"
+      },
+      {
+        "command": "code-generation.manageTemplates",
+        "title": "Code Generation: Manage Templates"
+      },
+      {
+        "command": "code-generation.generateDocumentation",
+        "title": "Code Generation: Generate Documentation"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "code-generation.generateCode",
+          "group": "code-generation"
+        },
+        {
+          "command": "code-generation.generateFromTemplate",
+          "group": "code-generation"
+        },
+        {
+          "command": "code-generation.saveTemplate",
+          "group": "code-generation"
+        },
+        {
+          "command": "code-generation.generateDocumentation",
+          "group": "code-generation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "code-generation.generateCode",
+        "key": "ctrl+shift+g",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "code-generation.generateFromTemplate",
+        "key": "ctrl+shift+t",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "code-generation.generateDocumentation",
+        "key": "ctrl+shift+d",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.9.3"
+  }
+}

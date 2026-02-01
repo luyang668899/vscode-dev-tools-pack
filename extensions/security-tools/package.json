@@ -1,0 +1,80 @@
+{
+  "name": "security-tools",
+  "displayName": "Security Tools",
+  "description": "Security tools for code security scanning, dependency vulnerability detection, and compliance checking",
+  "version": "1.0.0",
+  "publisher": "vscode",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:security-tools.codeSecurityScan",
+    "onCommand:security-tools.dependencyScan",
+    "onCommand:security-tools.complianceCheck",
+    "onCommand:security-tools.staticCodeAnalysis",
+    "onCommand:security-tools.dynamicSecurityTest",
+    "onCommand:security-tools.refreshExplorer"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "security-tools.codeSecurityScan",
+        "title": "Security Tools: Code Security Scan"
+      },
+      {
+        "command": "security-tools.dependencyScan",
+        "title": "Security Tools: Dependency Vulnerability Scan"
+      },
+      {
+        "command": "security-tools.complianceCheck",
+        "title": "Security Tools: Compliance Check"
+      },
+      {
+        "command": "security-tools.staticCodeAnalysis",
+        "title": "Security Tools: Static Code Analysis"
+      },
+      {
+        "command": "security-tools.dynamicSecurityTest",
+        "title": "Security Tools: Dynamic Security Test"
+      },
+      {
+        "command": "security-tools.refreshExplorer",
+        "title": "Security Tools: Refresh Explorer"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+        "command": "security-tools.codeSecurityScan",
+        "group": "security"
+      },
+      {
+        "command": "security-tools.dependencyScan",
+        "group": "security"
+      },
+      {
+        "command": "security-tools.staticCodeAnalysis",
+        "group": "security"
+      },
+      {
+        "command": "security-tools.dynamicSecurityTest",
+        "group": "security"
+      }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.9.3"
+  }
+}

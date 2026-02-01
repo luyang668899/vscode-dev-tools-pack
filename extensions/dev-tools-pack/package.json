@@ -1,0 +1,61 @@
+{
+  "name": "dev-tools-pack",
+  "displayName": "Developer Tools Pack",
+  "description": "A comprehensive collection of development tools extensions for VS Code, including AI assistance, performance analysis, database management, network tools, security scanning, code generation, and DevOps integration",
+  "version": "1.0.0",
+  "publisher": "vscode",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "categories": [
+    "Extension Packs"
+  ],
+  "keywords": [
+    "developer-tools",
+    "extension-pack",
+    "ai-assistant",
+    "performance",
+    "database",
+    "network",
+    "security",
+    "code-generation",
+    "devops"
+  ],
+  "extensionPack": [
+    "vscode.ai-assistant",
+    "vscode.performance-tools",
+    "vscode.database-tools",
+    "vscode.network-tools",
+    "vscode.security-tools",
+    "vscode.code-generation-tools",
+    "vscode.devops-tools"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "dev-tools-pack.showOverview",
+        "title": "Developer Tools Pack: Show Overview"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "dev-tools-pack.showOverview",
+        "key": "ctrl+shift+k",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.9.3"
+  }
+}
