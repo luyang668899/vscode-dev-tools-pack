@@ -8,7 +8,7 @@ node_modules/
 extensions/**/dist/
 src/vs/base/browser/ui/codicons/codicon/codicon.ttf
 /out*/
-/extensions/**/out/
+extensions/**/out/
 build/node_modules
 coverage/
 test_data/
@@ -25,3 +25,4 @@ product.overrides.json
 .vscode-test
 vscode-telemetry-docs/
 test-output.json
+.github/workflows/
